@@ -208,6 +208,9 @@
             "config/packages/sensio_framework_extra.yaml"
         ]
     },
+    "sensiolabs-de/rich-model-forms-bundle": {
+        "version": "v0.2.1"
+    },
     "swiftmailer/swiftmailer": {
         "version": "v6.2.1"
     },

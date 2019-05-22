@@ -11,12 +11,15 @@ use Faker\Factory;
 
 class CategoryFixture extends Fixture
 {
+    public const LIMIT = 30;
+
     public function load(ObjectManager $manager): void
     {
         $factory = Factory::create();
-        for ($i = 0; $i < 100; ++$i) {
+        for ($i = 0; $i < self::LIMIT; ++$i) {
             $category = new Category($factory->company);
             $manager->persist($category);
+            $this->addReference('category_'.$i, $category);
         }
 
         $manager->flush();

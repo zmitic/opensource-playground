@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "436f89eb7677ad025bde488a7249e0a6",
+    "content-hash": "56622a9ac8d6d9a8386f60d5b882ef3e",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -2159,6 +2159,74 @@
                 "controllers"
             ],
             "time": "2019-04-10T06:00:20+00:00"
+        },
+        {
+            "name": "sensiolabs-de/rich-model-forms-bundle",
+            "version": "v0.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sensiolabs-de/rich-model-forms-bundle.git",
+                "reference": "b0f03040a79880da3abb98c4c2028d0e4ee34e1c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sensiolabs-de/rich-model-forms-bundle/zipball/b0f03040a79880da3abb98c4c2028d0e4ee34e1c",
+                "reference": "b0f03040a79880da3abb98c4c2028d0e4ee34e1c",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3",
+                "psr/container": "^1.0",
+                "symfony/config": "^3.4||^4.0",
+                "symfony/dependency-injection": "^3.4||^4.0",
+                "symfony/form": "^3.4.15||^4.1.4",
+                "symfony/framework-bundle": "^3.4||^4.0",
+                "symfony/http-kernel": "^3.4||^4.0",
+                "symfony/options-resolver": "^3.4.4||^4.0.4",
+                "symfony/property-access": "^3.4.15||^4.1.4"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.13",
+                "phpstan/phpstan": "^0.10",
+                "symfony/phpunit-bridge": "^3.4.19||^4.1.8",
+                "symfony/translation": "^3.4||^4.0"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "SensioLabs\\RichModelForms\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christopher Hertel",
+                    "email": "christopher.hertel@sensiolabs.de"
+                },
+                {
+                    "name": "Christian Flothmann",
+                    "email": "christian.flothmann@sensiolabs.de"
+                }
+            ],
+            "description": "Provides additional data mapper options that ease the use of the Symfony Form component with rich models.",
+            "keywords": [
+                "Forms",
+                "bundle",
+                "ddd",
+                "domain-driven design",
+                "form",
+                "rich model",
+                "symfony"
+            ],
+            "time": "2019-05-03T07:52:19+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

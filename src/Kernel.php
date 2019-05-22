@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App;
 
+use App\Form\Extension\IgnoreTypeErrorExtension;
+use App\Form\Extension\NoValidateExtension;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\Config\Resource\FileResource;
@@ -42,6 +44,11 @@ class Kernel extends BaseKernel
         $loader->load($confDir.'/{packages}/'.$this->environment.'/**/*'.self::CONFIG_EXTS, 'glob');
         $loader->load($confDir.'/{services}'.self::CONFIG_EXTS, 'glob');
         $loader->load($confDir.'/{services}_'.$this->environment.self::CONFIG_EXTS, 'glob');
+
+        $definition = $container->getDefinition(NoValidateExtension::class);
+        $definition->addTag('form.type_extension', ['priority' => -100]);
+        $definition = $container->getDefinition(IgnoreTypeErrorExtension::class);
+        $definition->addTag('form.type_extension', ['priority' => -100]);
     }
 
     protected function configureRoutes(RouteCollectionBuilder $routes): void

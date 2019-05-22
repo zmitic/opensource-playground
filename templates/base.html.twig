@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{{ encore_entry_link_tags('app') }}{% endblock %}
-    </head>
-    <body>
-        {% block body %}asdasd{% endblock %}
-        {% block javascripts %}{{ encore_entry_script_tags('app') }}{% endblock %}
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}{{ encore_entry_link_tags('app') }}{% endblock %}
+</head>
+<body>
+<div class="container">
+    <a class="btn btn-primary" href="{{ path('default') }}">Base</a>
+
+    <a class="btn btn-danger" href="{{ path('product_create') }}">Create</a>
+
+    {% block body %}
+
+        {% for product in products %}
+            <a href="{{ path('product_edit', {'id': product.id}) }}">{{ product }}</a>
+        {% endfor %}
+    {% endblock %}
+
+</div>
+{% block javascripts %}{{ encore_entry_script_tags('app') }}{% endblock %}
+</body>
 </html>
