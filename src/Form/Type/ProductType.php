@@ -35,7 +35,7 @@ class ProductType extends AbstractType
             'required' => false,
             'constraints' => [
                 new NotNull(['message' => 'You must set name']),
-                new Length(['min' => 3]),
+//                new Length(['min' => 3]),
             ],
             'read_property_path' => function (Product $product) {
                 return $product->getName();
@@ -46,18 +46,14 @@ class ProductType extends AbstractType
         ]);
     }
 
-    public function factory(Category $category, string $name): ?Product
-    {
-        return new Product($category, $name);
-    }
-
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'empty_data' => null,
-//            'data_class' => Product::class,
-//            'exception_handling_strategy' => 'ignore',
-            'factory' => [$this, 'factory'],
+            'factory' => function (Category $category, string $name) {
+                return new Product($category, $name);
+            },
+            'factory_error_message' => 'Nope',
+            'data_class' => Product::class,
         ]);
     }
 }

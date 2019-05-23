@@ -19,6 +19,7 @@ class Product
     /**
      * @ORM\ManyToOne(targetEntity="Category")
      * @ORM\JoinColumn(onDelete="CASCADE")
+     *
      * @Assert\NotNull()
      */
     private $category;
@@ -26,6 +27,7 @@ class Product
     /**
      * @ORM\Column(type="string", nullable=false)
      * @Assert\NotNull()
+     * @Assert\Length(min="3")
      */
     private $name;
 

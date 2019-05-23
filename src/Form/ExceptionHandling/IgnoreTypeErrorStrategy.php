@@ -28,7 +28,8 @@ class IgnoreTypeErrorStrategy implements ExceptionHandlerInterface
             return new FormError('Some fields are invalid, please correct them.', null, [], null, $e);
         }
 
-        return new FormError(null, null, [], null, $e);
+//        return null;
+//        return new FormError(null, null, [], null, $e);
         return new FormError('You cannot left this value empty.', null, [], null, $e);
     }
 }
