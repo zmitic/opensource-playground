@@ -18,42 +18,56 @@ class ProductType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $builder->add('category', EntityType::class, [
+        $builder->add('first', EntityType::class, [
+            'label' => false,
             'class' => Category::class,
             'required' => false,
+            'placeholder' => '<Please select category>',
             'constraints' => [
-                new NotNull(['message' => 'You must select category']),
+//                new NotNull(),
             ],
-            'read_property_path' => function (Product $product) {
+            'get_value' => function (Product $product) {
                 return $product->getCategory();
             },
-            'write_property_path' => function (Product $product, Category $category) {
+            'update_value' => function (Category $category, Product $product) {
                 $product->setCategory($category);
             },
+            'write_error_message' => 'You must select category2',
+//            'write_error_message' => null,
         ]);
+
         $builder->add('name', TextType::class, [
+            'label' => false,
             'required' => false,
             'constraints' => [
-                new NotNull(['message' => 'You must set name']),
-//                new Length(['min' => 3]),
+//                new NotNull(),
+                new Length(['min' => 2])
             ],
-            'read_property_path' => function (Product $product) {
+            'get_value' => function (Product $product) {
                 return $product->getName();
             },
-            'write_property_path' => function (Product $product, string $name) {
+            'update_value' => function (string $name, Product $product) {
                 $product->setName($name);
             },
+            'write_error_message' => 'You must give name to product',
+//            'write_error_message' => null,
         ]);
+    }
+
+    public function factory(Category $first, string $name): Product
+    {
+        return new Product($first, $name);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'factory' => function (Category $category, string $name) {
-                return new Product($category, $name);
-            },
-            'factory_error_message' => 'Nope',
+            'factory' => [$this, 'factory'],
+            'factory_error_message' => null,
             'data_class' => Product::class,
+            'error_mapping' => [
+                'category' => 'first',
+            ]
         ]);
     }
 }

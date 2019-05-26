@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App;
 
-use App\Form\Extension\IgnoreTypeErrorExtension;
 use App\Form\Extension\NoValidateExtension;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
@@ -47,7 +46,6 @@ class Kernel extends BaseKernel
 
         $definition = $container->getDefinition(NoValidateExtension::class);
         $definition->addTag('form.type_extension', ['priority' => -100]);
-        $definition = $container->getDefinition(IgnoreTypeErrorExtension::class);
         $definition->addTag('form.type_extension', ['priority' => -100]);
     }
 

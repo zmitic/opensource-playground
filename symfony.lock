@@ -208,9 +208,6 @@
             "config/packages/sensio_framework_extra.yaml"
         ]
     },
-    "sensiolabs-de/rich-model-forms-bundle": {
-        "version": "v0.2.1"
-    },
     "swiftmailer/swiftmailer": {
         "version": "v6.2.1"
     },
@@ -580,5 +577,8 @@
     },
     "zendframework/zend-eventmanager": {
         "version": "3.2.1"
+    },
+    "zmitic/strict-form-mapper-bundle": {
+        "version": "1.0-dev"
     }
 }

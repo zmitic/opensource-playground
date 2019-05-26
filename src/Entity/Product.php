@@ -20,12 +20,13 @@ class Product
      * @ORM\ManyToOne(targetEntity="Category")
      * @ORM\JoinColumn(onDelete="CASCADE")
      *
-     * @Assert\NotNull()
+     * @Assert\NotNull(message="You must select categoryf")
      */
     private $category;
 
     /**
-     * @ORM\Column(type="string", nullable=false)
+     * @ORM\Column(type="string", nullable=true)
+     *
      * @Assert\NotNull()
      * @Assert\Length(min="3")
      */
@@ -39,7 +40,7 @@ class Product
 
     public function __toString()
     {
-        return $this->name;
+        return (string)'---'.$this->name;
     }
 
     public function getCategory(): Category
