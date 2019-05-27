@@ -5310,16 +5310,16 @@
         },
         {
             "name": "symfony/webpack-encore-bundle",
-            "version": "v1.5.0",
+            "version": "v1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/webpack-encore-bundle.git",
-                "reference": "2384cfde92226f2447eb422570c322afe2ae15ea"
+                "reference": "f1ec2fea7fb6a7c7a444ac17e711fab3bbf5e015"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/webpack-encore-bundle/zipball/2384cfde92226f2447eb422570c322afe2ae15ea",
-                "reference": "2384cfde92226f2447eb422570c322afe2ae15ea",
+                "url": "https://api.github.com/repos/symfony/webpack-encore-bundle/zipball/f1ec2fea7fb6a7c7a444ac17e711fab3bbf5e015",
+                "reference": "f1ec2fea7fb6a7c7a444ac17e711fab3bbf5e015",
                 "shasum": ""
             },
             "require": {
@@ -5331,10 +5331,12 @@
                 "symfony/http-kernel": "^3.4 || ^4.0"
             },
             "require-dev": {
+                "fig/link-util": "^1.0",
                 "friendsofphp/php-cs-fixer": "^2.14",
                 "symfony/framework-bundle": "^3.4 || ^4.0",
                 "symfony/phpunit-bridge": "^3.4 || ^4.1",
                 "symfony/twig-bundle": "^3.4 || ^4.0",
+                "symfony/web-link": "^3.4 || ^4.0",
                 "twig/twig": "^1.35 || ^2.0"
             },
             "type": "symfony-bundle",
@@ -5360,7 +5362,7 @@
                 }
             ],
             "description": "Integration with your Symfony app & Webpack Encore!",
-            "time": "2019-04-10T17:55:40+00:00"
+            "time": "2019-05-26T18:09:46+00:00"
         },
         {
             "name": "symfony/yaml",
@@ -5652,12 +5654,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zmitic/strict-form-mapper-bundle.git",
-                "reference": "d53a14c76d6e397eb1cb719f594cc13bbcf4d403"
+                "reference": "24988ce5cae4ef24df0798009cc231b222be07b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zmitic/strict-form-mapper-bundle/zipball/d53a14c76d6e397eb1cb719f594cc13bbcf4d403",
-                "reference": "d53a14c76d6e397eb1cb719f594cc13bbcf4d403",
+                "url": "https://api.github.com/repos/zmitic/strict-form-mapper-bundle/zipball/24988ce5cae4ef24df0798009cc231b222be07b5",
+                "reference": "24988ce5cae4ef24df0798009cc231b222be07b5",
                 "shasum": ""
             },
             "require": {
@@ -5668,6 +5670,7 @@
                 "symfony/dependency-injection": "^4.2",
                 "symfony/form": "^4.2",
                 "symfony/framework-bundle": "^4.2",
+                "symfony/options-resolver": "^4.2",
                 "symfony/twig-bundle": "^4.2",
                 "symfony/yaml": "^4.2"
             },
@@ -5724,7 +5727,7 @@
                 "source": "https://github.com/zmitic/strict-form-mapper-bundle/tree/master",
                 "issues": "https://github.com/zmitic/strict-form-mapper-bundle/issues"
             },
-            "time": "2019-05-26T13:29:02+00:00"
+            "time": "2019-05-27T20:14:58+00:00"
         }
     ],
     "packages-dev": [
