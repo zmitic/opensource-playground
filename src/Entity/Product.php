@@ -40,7 +40,7 @@ class Product
 
     public function __toString()
     {
-        return (string)'---'.$this->name;
+        return $this->name;
     }
 
     public function getCategory(): Category
