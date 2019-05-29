@@ -35,9 +35,9 @@ class DefaultController extends AbstractController
     /**
      * @Route("/edit_tags", name="tags_edit", methods={"GET", "POST"})
      */
-    public function editAllTags(Request $request, TagRepository $tagRepository): Response
+    public function editAllTags(Request $request): Response
     {
-        $form = $this->createForm(TagsCollectionType::class, $tagRepository->findAll());
+        $form = $this->createForm(TagsCollectionType::class);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
