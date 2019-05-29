@@ -5,8 +5,11 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Entity\Comment;
+use App\Entity\Tag;
 use App\Form\Type\CommentType;
+use App\Form\Type\TagsCollectionType;
 use App\Repository\CommentRepository;
+use App\Repository\TagRepository;
 use function array_map;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,9 +21,10 @@ class DefaultController extends AbstractController
     /**
      * @Route("/", name="default")
      */
-    public function index(CommentRepository $commentRepository): Response
+    public function index(CommentRepository $commentRepository, TagRepository $tagRepository): Response
     {
         $comments = $commentRepository->findAll();
+        $tags = $tagRepository->findAll();
 
         return $this->render('base.html.twig', [
             'comments' => array_map(function (Comment $comment) {
@@ -29,6 +33,35 @@ class DefaultController extends AbstractController
                     'body' => $comment->getBody(),
                 ];
             }, $comments),
+
+            'tags' => array_map(function (Tag $tag) {
+                return [
+                    'id' => $tag->getId(),
+                    'value' => $tag->getValue()
+                ];
+            }, $tags),
+        ]);
+    }
+
+    /**
+     * @Route("/edit_tags", name="tags_edit", methods={"GET", "POST"})
+     */
+    public function editAllTags(Request $request, TagRepository $tagRepository): Response
+    {
+        $form = $this->createForm(TagsCollectionType::class, $tagRepository->findAll());
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $product = $form->getData();
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($product);
+            $em->flush();
+
+            return $this->redirectToRoute('default');
+        }
+
+        return $this->render('generic_form.html.twig', [
+            'form' => $form->createView(),
         ]);
     }
 

@@ -36,9 +36,6 @@ class TagType extends AbstractType
         $resolver->setDefaults([
             'data_class' => Tag::class,
             'factory' => [$this, 'factory'],
-            'error_mapping' => [
-//                'value' => 'first',
-            ],
             'factory_error_message' => null,
         ]);
     }

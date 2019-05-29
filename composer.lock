@@ -5726,12 +5726,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zmitic/strict-form-mapper-bundle.git",
-                "reference": "6e953ad0734bbe658528a1b5a3ca2cc7c994e61a"
+                "reference": "f470ccb6655f024b7fda4d5dd2fc16762f4c5c61"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zmitic/strict-form-mapper-bundle/zipball/6e953ad0734bbe658528a1b5a3ca2cc7c994e61a",
-                "reference": "6e953ad0734bbe658528a1b5a3ca2cc7c994e61a",
+                "url": "https://api.github.com/repos/zmitic/strict-form-mapper-bundle/zipball/f470ccb6655f024b7fda4d5dd2fc16762f4c5c61",
+                "reference": "f470ccb6655f024b7fda4d5dd2fc16762f4c5c61",
                 "shasum": ""
             },
             "require": {
@@ -5739,6 +5739,7 @@
                 "ext-json": "*",
                 "php": "~7.1",
                 "sensio/framework-extra-bundle": "^5.3",
+                "symfony/contracts": "^1.1",
                 "symfony/dependency-injection": "^4.2",
                 "symfony/form": "^4.2",
                 "symfony/framework-bundle": "^4.2",
@@ -5799,7 +5800,7 @@
                 "source": "https://github.com/zmitic/strict-form-mapper-bundle/tree/master",
                 "issues": "https://github.com/zmitic/strict-form-mapper-bundle/issues"
             },
-            "time": "2019-05-29T15:17:48+00:00"
+            "time": "2019-05-29T16:26:43+00:00"
         }
     ],
     "packages-dev": [
