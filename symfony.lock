@@ -1,4 +1,7 @@
 {
+    "braincrafted/bootstrap-bundle": {
+        "version": "dev-develop"
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {

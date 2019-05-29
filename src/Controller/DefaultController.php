@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\Entity\Product;
-use App\Form\Type\ProductType;
-use App\Repository\ProductRepository;
+use App\Entity\Comment;
+use App\Form\Type\CommentType;
+use App\Repository\CommentRepository;
+use function array_map;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,10 +18,17 @@ class DefaultController extends AbstractController
     /**
      * @Route("/", name="default")
      */
-    public function index(ProductRepository $productRepository): Response
+    public function index(CommentRepository $commentRepository): Response
     {
+        $comments = $commentRepository->findAll();
+
         return $this->render('base.html.twig', [
-            'products' => $productRepository->findAll(),
+            'comments' => array_map(function (Comment $comment) {
+                return [
+                    'id' => $comment->getId(),
+                    'body' => $comment->getBody(),
+                ];
+            }, $comments),
         ]);
     }
 
@@ -29,12 +37,13 @@ class DefaultController extends AbstractController
      */
     public function createProduct(Request $request): Response
     {
-        $form = $this->createForm(ProductType::class);
+        $form = $this->createForm(CommentType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $product = $form->getData();
-            $this->getDoctrine()->getManager()->persist($product);
-            $this->getDoctrine()->getManager()->flush();
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($product);
+            $em->flush();
 
             return $this->redirectToRoute('default');
         }
@@ -47,14 +56,15 @@ class DefaultController extends AbstractController
     /**
      * @Route("/edit_product/{id}", name="product_edit", methods={"GET", "POST"})
      */
-    public function editProduct(Request $request, Product $product): Response
+    public function editProduct(Request $request, Comment $product): Response
     {
-        $form = $this->createForm(ProductType::class, $product);
+        $form = $this->createForm(CommentType::class, $product);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $product = $form->getData();
-            $this->getDoctrine()->getManager()->persist($product);
-            $this->getDoctrine()->getManager()->flush();
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($product);
+            $em->flush();
 
             return $this->redirectToRoute('default');
         }

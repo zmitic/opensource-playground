@@ -5,8 +5,7 @@
     {{ form_start(form) }}
     {{ form_errors(form) }}
 
-    {{ form_row(form.first) }}
-    {{ form_row(form.name) }}
+    {{ form_rest(form) }}
 
     <button type="submit" class="btn btn-primary">Submit</button>
     {{ form_end(form) }}

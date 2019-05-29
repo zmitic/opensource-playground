@@ -28,6 +28,7 @@
         "symfony/web-link": "4.2.*",
         "symfony/webpack-encore-bundle": "^1.5",
         "symfony/yaml": "4.2.*",
+        "braincrafted/bootstrap-bundle": "dev-develop",
         "zmitic/strict-form-mapper-bundle": "dev-master"
     },
     "require-dev": {

@@ -13,10 +13,18 @@
 
     {% block body %}
 
-        {% for product in products %}
-            <a href="{{ path('product_edit', {'id': product.id}) }}">{{ product }}</a>
-        {% endfor %}
+        <ul class="list-unstyled">
+
+            {% for comment in comments %}
+                <li>
+                    <a href="{{ path('product_edit', {'id': comment.id}) }}">{{ comment.body }}</a>
+                </li>
+            {% endfor %}
+
+        </ul>
+
     {% endblock %}
+
 
 </div>
 {% block javascripts %}{{ encore_entry_script_tags('app') }}{% endblock %}
