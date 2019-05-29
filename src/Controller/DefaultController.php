@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Entity\Comment;
-use App\Entity\Tag;
 use App\Form\Type\CommentType;
 use App\Form\Type\TagsCollectionType;
 use App\Repository\CommentRepository;
 use App\Repository\TagRepository;
-use function array_map;
+use App\ViewMapper\CommentViewMapper;
+use App\ViewMapper\TagViewMapper;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -27,19 +27,8 @@ class DefaultController extends AbstractController
         $tags = $tagRepository->findAll();
 
         return $this->render('base.html.twig', [
-            'comments' => array_map(function (Comment $comment) {
-                return [
-                    'id' => $comment->getId(),
-                    'body' => $comment->getBody(),
-                ];
-            }, $comments),
-
-            'tags' => array_map(function (Tag $tag) {
-                return [
-                    'id' => $tag->getId(),
-                    'value' => $tag->getValue()
-                ];
-            }, $tags),
+            'comments' => CommentViewMapper::multiple($comments),
+            'tags' => TagViewMapper::multiple($tags),
         ]);
     }
 
@@ -52,10 +41,7 @@ class DefaultController extends AbstractController
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $product = $form->getData();
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($product);
-            $em->flush();
+            $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('default');
         }

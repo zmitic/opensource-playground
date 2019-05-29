@@ -37,6 +37,9 @@ class TagType extends AbstractType
             'data_class' => Tag::class,
             'factory' => [$this, 'factory'],
             'factory_error_message' => null,
+            'error_mapping' => [
+                '.' => 'value',
+            ],
         ]);
     }
 }
