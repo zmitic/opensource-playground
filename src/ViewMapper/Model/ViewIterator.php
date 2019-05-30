@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\ViewMapper\Model;
 
-use function array_map;
 use ArrayIterator;
 use Countable;
 use IteratorAggregate;
+use function array_map;
 use function count;
 
 class ViewIterator implements IteratorAggregate, Countable
@@ -18,7 +18,7 @@ class ViewIterator implements IteratorAggregate, Countable
 
     private $initialized = false;
 
-    private $views = [];
+    private $views;
 
     public function __construct(callable $dataProvider, callable $viewBuilder)
     {

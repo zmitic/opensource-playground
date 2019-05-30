@@ -7,8 +7,6 @@ namespace App\Repository\Model;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\QueryBuilder;
 use Generator;
-use function get_class;
-use LogicException;
 
 /**
  * @method QueryBuilder  createQueryBuilder($alias)
@@ -24,11 +22,6 @@ trait RepositoryUtilsTrait
     public function getEm(): EntityManager
     {
         return $this->_em;
-    }
-
-    public function appendFilters(): Generator
-    {
-        throw new LogicException(sprintf('You have to make "%s::%s" method.', get_class($this), __FUNCTION__));
     }
 
     public function getQb(Generator ...$generators): QueryBuilder
@@ -142,7 +135,7 @@ trait RepositoryUtilsTrait
     private function runGenerators(array $generators): void
     {
         foreach ($generators as $generator) {
-            iterator_to_array($generator);
+            iterator_to_array($generator, false);
         }
     }
 }

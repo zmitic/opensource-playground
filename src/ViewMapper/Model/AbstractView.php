@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\ViewMapper\Model;
 
 use LogicException;
-use Closure;
 use function gettype;
 use function sprintf;
 
@@ -27,7 +26,8 @@ abstract class AbstractView
         return $views;
     }
 
-    public static function lazy(Closure $dataProvider): ViewIterator
+    /**  @return ViewIterator|static[] */
+    public static function lazy(callable $dataProvider): ViewIterator
     {
         $viewBuilder = function ($entity) {
             return new static($entity);

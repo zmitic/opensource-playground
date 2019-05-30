@@ -23,7 +23,7 @@
                     {% for tag in comment.tags %}
                         {{ tag }}
                         {% for post in tag.posts %}
-                            {{ post }}
+                            {{ post.dummy }}
                         {% endfor %}
                     {% endfor %}
                 </li>

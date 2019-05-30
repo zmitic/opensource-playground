@@ -23,7 +23,7 @@ class CommentType extends AbstractType
             'required' => false,
             'constraints' => [
             ],
-            'placeholder' => '<Please select category>',
+            'placeholder' => 'Please select category',
             'get_value' => function (Comment $product) {
                 return $product->getPost();
             },

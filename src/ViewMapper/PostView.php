@@ -14,9 +14,4 @@ class PostView extends AbstractView
     {
         $this->dummy = $dummy;
     }
-
-    public function __toString()
-    {
-        return $this->dummy;
-    }
 }
