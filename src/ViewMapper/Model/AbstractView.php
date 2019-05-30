@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\ViewMapper\Model;
 
 use LogicException;
+use function get_class;
+use function is_object;
 use function gettype;
 use function sprintf;
 
@@ -12,7 +14,8 @@ abstract class AbstractView
 {
     private function __construct($entity)
     {
-        throw new LogicException(sprintf('You must create child constructor with argument of type "%s".', gettype($entity)));
+        $type = is_object($entity) ? get_class($entity) : gettype($entity);
+        throw new LogicException(sprintf('You must create child constructor with argument of type "%s".', $type));
     }
 
     /** @return static[] */
