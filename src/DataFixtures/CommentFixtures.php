@@ -22,7 +22,7 @@ class CommentFixtures extends Fixture implements DependentFixtureInterface
         for ($i = 0; $i < self::LIMIT; ++$i) {
             /** @var Post $post */
             $post = $this->getReference('post_'.random_int(0, PostFixture::LIMIT - 1));
-            $post = new Comment($post, $factory->words(2, true));
+            $post = new Comment($post, $factory->word);
             $manager->persist($post);
         }
 

@@ -8,9 +8,7 @@ use App\Entity\Comment;
 use App\Form\Type\CommentType;
 use App\Form\Type\TagsCollectionType;
 use App\Repository\CommentRepository;
-use App\Repository\TagRepository;
-use App\ViewMapper\CommentViewMapper;
-use App\ViewMapper\TagViewMapper;
+use App\ViewMapper\CommentView;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,14 +19,12 @@ class DefaultController extends AbstractController
     /**
      * @Route("/", name="default")
      */
-    public function index(CommentRepository $commentRepository, TagRepository $tagRepository): Response
+    public function index(CommentRepository $commentRepository): Response
     {
         $comments = $commentRepository->findAll();
-        $tags = $tagRepository->findAll();
 
         return $this->render('base.html.twig', [
-            'comments' => CommentViewMapper::multiple($comments),
-            'tags' => TagViewMapper::multiple($tags),
+            'comments' => CommentView::fromIterable($comments),
         ]);
     }
 
