@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5484edd06c34557d5d0c87387c171288",
+    "content-hash": "43aeb688156055a5ef676117ecfe3369",
     "packages": [
         {
             "name": "braincrafted/bootstrap-bundle",
@@ -1444,16 +1444,16 @@
         },
         {
             "name": "hitechcoding/view-mapper",
-            "version": "v1.0.0",
+            "version": "v1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hitechcoding/view-mapper.git",
-                "reference": "3f601ec431857f60c0541ca00754861cb874fc81"
+                "reference": "7ec6495557b96dd8c53c14bebd453fe72239d91d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hitechcoding/view-mapper/zipball/3f601ec431857f60c0541ca00754861cb874fc81",
-                "reference": "3f601ec431857f60c0541ca00754861cb874fc81",
+                "url": "https://api.github.com/repos/hitechcoding/view-mapper/zipball/7ec6495557b96dd8c53c14bebd453fe72239d91d",
+                "reference": "7ec6495557b96dd8c53c14bebd453fe72239d91d",
                 "shasum": ""
             },
             "require": {
@@ -1470,7 +1470,7 @@
                 "MIT"
             ],
             "description": "Map entities for views",
-            "time": "2019-06-07T11:09:53+00:00"
+            "time": "2019-06-07T19:33:32+00:00"
         },
         {
             "name": "jdorn/sql-formatter",

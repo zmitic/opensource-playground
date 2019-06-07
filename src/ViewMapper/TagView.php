@@ -19,10 +19,9 @@ class TagView extends AbstractView
     {
         $this->id = $tag->getId();
         $this->value = $tag->getValue();
-        $this->posts = PostView::lazy(function () {
-            return [
-                'a', 'b', 'c',
-            ];
+
+        $this->posts = PostView::lazyCollection(function () use ($tag) {
+            return $tag->getPosts();
         });
     }
 

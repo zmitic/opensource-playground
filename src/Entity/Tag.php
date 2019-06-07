@@ -6,6 +6,7 @@ namespace App\Entity;
 
 use App\Entity\Model\CreatedAtTrait;
 use App\Entity\Model\UUIDTrait;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -27,9 +28,15 @@ class Tag
      */
     private $value;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Post", mappedBy="tags")
+     */
+    private $posts;
+
     public function __construct(string $value)
     {
         $this->value = $value;
+        $this->posts = new ArrayCollection();
     }
 
     public function __toString()
@@ -45,5 +52,11 @@ class Tag
     public function setValue(string $value): void
     {
         $this->value = $value;
+    }
+
+    /** @return Post[] */
+    public function getPosts(): array
+    {
+        return $this->posts->toArray();
     }
 }

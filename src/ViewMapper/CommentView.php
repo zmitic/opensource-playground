@@ -6,6 +6,7 @@ namespace App\ViewMapper;
 
 use App\Entity\Comment;
 use HTC\ViewMapper\AbstractView;
+use HTC\ViewMapper\LazyProperty;
 
 class CommentView extends AbstractView
 {
@@ -15,11 +16,19 @@ class CommentView extends AbstractView
 
     public $tags;
 
+    /** @var PostView|LazyProperty */
+    public $post;
+
     public function __construct(Comment $comment)
     {
         $this->id = $comment->getId();
         $this->body = $comment->getBody();
-        $this->tags = TagView::lazy(function () use ($comment) {
+
+        $this->post = PostView::lazyProperty(function () use ($comment) {
+            return $comment->getPost();
+        });
+
+        $this->tags = TagView::lazyCollection(function () use ($comment) {
             return $comment->getTags();
         });
     }
