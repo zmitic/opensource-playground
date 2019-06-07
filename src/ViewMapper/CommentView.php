@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\ViewMapper;
 
 use App\Entity\Comment;
-use App\ViewMapper\Model\AbstractView;
+use HTC\ViewMapper\AbstractView;
 
 class CommentView extends AbstractView
 {

@@ -17,6 +17,6 @@ return [
     Symfony\WebpackEncoreBundle\WebpackEncoreBundle::class => ['all' => true],
     Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle::class => ['dev' => true, 'test' => true],
     Nelmio\Alice\Bridge\Symfony\NelmioAliceBundle::class => ['dev' => true, 'test' => true],
-    HTC\StrictFormMapper\HTCStrictFormMapperBundle::class => ['all' => true],
     Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle::class => ['all' => true],
+    HTC\StrictFormMapper\HTCStrictFormMapperBundle::class => ['all' => true],
 ];

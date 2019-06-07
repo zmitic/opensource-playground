@@ -120,6 +120,12 @@
     "fzaninotto/faker": {
         "version": "v1.8.0"
     },
+    "hitechcoding/strict-form-mapper-bundle": {
+        "version": "1.0-dev"
+    },
+    "hitechcoding/view-mapper": {
+        "version": "dev-master"
+    },
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },
@@ -323,6 +329,12 @@
             "src/Controller/.gitignore",
             "src/Kernel.php"
         ]
+    },
+    "symfony/http-client": {
+        "version": "v4.3.0"
+    },
+    "symfony/http-client-contracts": {
+        "version": "v1.1.1"
     },
     "symfony/http-foundation": {
         "version": "v4.2.8"
@@ -595,8 +607,5 @@
     },
     "zendframework/zend-eventmanager": {
         "version": "3.2.1"
-    },
-    "zmitic/strict-form-mapper-bundle": {
-        "version": "1.0-dev"
     }
 }

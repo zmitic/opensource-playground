@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace App\ViewMapper;
 
-use App\ViewMapper\Model\AbstractView;
+
+use HTC\ViewMapper\AbstractView;
 
 class PostView extends AbstractView
 {
