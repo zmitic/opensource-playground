@@ -6,6 +6,7 @@ namespace App\ViewMapper;
 
 use App\Entity\Tag;
 use HTC\ViewMapper\AbstractView;
+use HTC\ViewMapper\LazyCollection;
 
 class TagView extends AbstractView
 {
@@ -13,6 +14,7 @@ class TagView extends AbstractView
 
     public $value;
 
+    /** @var PostView[]|LazyCollection  */
     public $posts;
 
     public function __construct(Tag $tag)

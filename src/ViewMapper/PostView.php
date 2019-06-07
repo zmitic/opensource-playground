@@ -16,9 +16,4 @@ class PostView extends AbstractView
     {
         $this->body = $post->getBody();
     }
-
-    public function getRandom()
-    {
-        return random_int(1, 10);
-    }
 }
