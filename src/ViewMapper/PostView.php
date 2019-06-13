@@ -6,7 +6,6 @@ namespace App\ViewMapper;
 
 use App\Entity\Post;
 use HTC\ViewMapper\AbstractView;
-use function random_int;
 
 class PostView extends AbstractView
 {

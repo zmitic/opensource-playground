@@ -14,7 +14,7 @@ class TagView extends AbstractView
 
     public $value;
 
-    /** @var PostView[]|LazyCollection  */
+    /** @var PostView[]|LazyCollection */
     public $posts;
 
     public function __construct(Tag $tag)
