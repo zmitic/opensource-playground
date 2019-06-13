@@ -71,14 +71,14 @@ class DefaultController extends AbstractController
     /**
      * @Route("/edit_product/{id}", name="product_edit", methods={"GET", "POST"})
      */
-    public function editProduct(Request $request, Comment $product): Response
+    public function editProduct(Request $request, Comment $comment): Response
     {
-        $form = $this->createForm(CommentType::class, $product);
+        $form = $this->createForm(CommentType::class, $comment);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $product = $form->getData();
+            $comment = $form->getData();
             $em = $this->getDoctrine()->getManager();
-            $em->persist($product);
+            $em->persist($comment);
             $em->flush();
 
             return $this->redirectToRoute('default');
