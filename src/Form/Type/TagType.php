@@ -16,12 +16,8 @@ class TagType extends AbstractType
     {
         $builder->add('value', TextType::class, [
             'label' => false,
-            'get_value' => function (Tag $tag) {
-                return $tag->getValue();
-            },
-            'update_value' => function (string $value, Tag $tag) {
-                $tag->setValue($value);
-            },
+            'get_value' => fn (Tag $tag) => $tag->getValue(),
+            'update_value' => fn (string $value, Tag $tag) => $tag->setValue($value),
             'write_error_message' => 'You have to give value of tag.',
         ]);
     }

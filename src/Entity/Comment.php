@@ -25,7 +25,7 @@ class Comment
      * @ORM\ManyToOne(targetEntity="Post")
      * @ORM\JoinColumn(onDelete="CASCADE")
      */
-    private $post;
+    private Post $post;
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -33,7 +33,7 @@ class Comment
      * @Assert\NotNull()
      * @Assert\Length(min="3")
      */
-    private $body;
+    private string $body;
 
     /**
      * @var ArrayCollection|Tag[]

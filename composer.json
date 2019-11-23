@@ -4,14 +4,13 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": "^7.2",
+        "php": "^7.4",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "braincrafted/bootstrap-bundle": "dev-develop",
-        "hitechcoding/strict-form-mapper-bundle": "dev-master",
         "hitechcoding/view-mapper": "^1.0",
         "ramsey/uuid-doctrine": "^1.5",
-        "sensio/framework-extra-bundle": "^5.1",
+        "sensio/framework-extra-bundle": "^5.5",
         "symfony/asset": "^4",
         "symfony/console": "^4",
         "symfony/dotenv": "^4",
@@ -30,6 +29,7 @@
         "symfony/validator": "^4",
         "symfony/web-link": "^4",
         "symfony/webpack-encore-bundle": "^1.5",
+        "strictify/form-mapper-bundle": "dev-master",
         "symfony/yaml": "^4"
     },
     "require-dev": {

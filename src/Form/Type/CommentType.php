@@ -24,12 +24,8 @@ class CommentType extends AbstractType
             'constraints' => [
             ],
             'placeholder' => 'Please select category',
-            'get_value' => function (Comment $product) {
-                return $product->getPost();
-            },
-            'update_value' => function (Post $category, Comment $product) {
-                $product->setPost($category);
-            },
+            'get_value' => fn (Comment $comment) => $comment->getPost(),
+            'update_value' => fn (string $post, Comment $comment) => $comment->setPost($post),
             'write_error_message' => 'You must select category',
         ]);
 
@@ -37,48 +33,44 @@ class CommentType extends AbstractType
             'required' => false,
             'constraints' => [
             ],
-            'get_value' => function (Comment $product) {
-                return $product->getBody();
-            },
-            'update_value' => function (string $name, Comment $product) {
-                $product->setBody($name);
-            },
+            'get_value' => fn (Comment $product) => $product->getBody(),
+            'update_value' => fn (string $name, Comment $comment) => $comment->setBody($name),
             'write_error_message' => 'You must give name to product',
         ]);
 
-        if ($options['use_collection']) {
-            $builder->add('xxx', BootstrapCollectionType::class, [
-                'property_path' => 'tags',
-                'entry_type' => TagType::class,
-                'allow_add' => true,
-                'allow_delete' => true,
-                'label' => false,
-                'get_value' => function (Comment $comment) {
-                    return $comment->getTags();
-                },
-                'add_value' => function (Tag $tag, Comment $comment) {
-                    $comment->addTag($tag);
-                },
-                'remove_value' => function (Tag $tag, Comment $comment) {
-                    $comment->removeTag($tag);
-                },
-                'write_error_message' => null,
-            ]);
-        } else {
-            $builder->add('xxx', EntityType::class, [
-                'class' => Tag::class,
-                'multiple' => true,
-                'get_value' => function (Comment $comment) {
-                    return $comment->getTags();
-                },
-                'add_value' => function (Tag $tag, Comment $comment) {
-                    $comment->addTag($tag);
-                },
-                'remove_value' => function (Tag $tag, Comment $comment) {
-                    $comment->removeTag($tag);
-                },
-            ]);
-        }
+//        if ($options['use_collection']) {
+//            $builder->add('xxx', BootstrapCollectionType::class, [
+//                'property_path' => 'tags',
+//                'entry_type' => TagType::class,
+//                'allow_add' => true,
+//                'allow_delete' => true,
+//                'label' => false,
+//                'get_value' => function (Comment $comment) {
+//                    return $comment->getTags();
+//                },
+//                'add_value' => function (Tag $tag, Comment $comment) {
+//                    $comment->addTag($tag);
+//                },
+//                'remove_value' => function (Tag $tag, Comment $comment) {
+//                    $comment->removeTag($tag);
+//                },
+//                'write_error_message' => null,
+//            ]);
+//        } else {
+//            $builder->add('xxx', EntityType::class, [
+//                'class' => Tag::class,
+//                'multiple' => true,
+//                'get_value' => function (Comment $comment) {
+//                    return $comment->getTags();
+//                },
+//                'add_value' => function (Tag $tag, Comment $comment) {
+//                    $comment->addTag($tag);
+//                },
+//                'remove_value' => function (Tag $tag, Comment $comment) {
+//                    $comment->removeTag($tag);
+//                },
+//            ]);
+//        }
     }
 
     public function factory(Post $post, string $body): Comment

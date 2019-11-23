@@ -7,6 +7,7 @@ namespace App\Repository;
 use App\Entity\Tag;
 use App\Repository\Model\RepositoryUtilsTrait;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Common\Persistence\ManagerRegistry;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
@@ -19,7 +20,7 @@ class TagRepository extends ServiceEntityRepository
 {
     use RepositoryUtilsTrait;
 
-    public function __construct(RegistryInterface $registry)
+    public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Tag::class);
     }
